@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .acc_container{
+            border: 1px solid black;
+        }
+
+        .title{
+            cursor: pointer;
+        }
+
+         .desc{
+            width: 50%;            
+        } 
+
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Accordion</h1>
+        <label for="multi">Multiple</label><input  type="checkbox" name="multi" id="multi" class="multi">
+        <div class="acc_container">
+            <h3 class="title">Title 1</h3>
+            <div class="desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam ex voluptates reprehenderit nostrum iure assumenda esse vel, atque, sit accusamus deleniti quas, similique perferendis debitis!</div>
+            </div>
+        </div>
+        <div class="acc_container">
+            <h3 class="title">Title 2</h3>
+            <div class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, ex.</div>
+            </div>
+        </div>
+        <div class="acc_container">
+            <h3 class="title">Title 3</h3>
+            <div class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat sed dignissimos repudiandae commodi aliquid? Molestias aut minus laboriosam, veniam, facere ea sit vitae eius molestiae nobis cupiditate, ducimus et. Reiciendis aspernatur facere nam consequuntur quis, ex commodi quas amet aut.</div>
+            </div>
+        </div>
+        <div class="acc_container">
+            <h3 class="title">Title 4</h3>
+            <div class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque officiis vero inventore sunt voluptate perferendis.</div>
+            </div>
+        </div>
+        <script>
+            let acc_con = document.querySelectorAll('.acc_container')
+            let title = document.querySelectorAll('.title')
+            let desc = document.querySelectorAll('.desc')
+            let multiCheck = document.querySelector('.multi')
+
+            firstActive()
+
+            acc_con.forEach((element) => {
+                element.addEventListener('click', (e) =>{
+                    let title = e.target.classList.contains('title')
+                    if(title && multiCheck.checked){
+                        console.log(multiCheck);
+                        element.children[1].style.display = 'block'
+                    }
+                    else if(title){
+                       removeActive()
+                       element.children[1].style.display = 'block'
+                    }
+                    
+                })
+            })
+
+            multiCheck.addEventListener('change',() => {
+                if(!multiCheck.checked){
+                    removeActive()
+                    acc_con[0].children[1].style.display = 'block'
+                }
+                
+            })
+
+            function removeActive(){
+                desc.forEach((element) => {
+                    element.style.display = 'none'
+                })
+            }
+
+            function firstActive(){
+                removeActive()
+                desc[0].style.display = 'block'
+            }
+             
+
+        </script>
+</body>
+</html>
