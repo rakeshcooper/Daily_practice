@@ -171,7 +171,7 @@ function isAnnagram(s,t){
     for (let i = 0; i < s.length; i++) {
         obj1[s[i]] = (obj1[s[i]] || 0) + 1
         obj2[t[i]] = (obj2[t[i]] || 0) + 1
-    }
+    } 
 
     for (const key in obj1) {
         if(obj1[key] !== obj2[key]){ return false }
@@ -195,11 +195,15 @@ function isAnnagrams(s,t){
     for (const key in count) {
         if(count[key] !== 0){ return false }
     }
-
     return true
+
+   
+    
 }
 
 console.log(isAnnagrams("rat","tar"));
+
+
 
 
 

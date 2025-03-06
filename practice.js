@@ -62,3 +62,20 @@ function revArrayManNew(r){
   console.log(newRev);
 }
 revArrayManNew(arrayValue)
+
+
+function URLtoobject(){
+    history.pushState({}, "", "/profile?lang=FR");
+    let obj = { lang: {EN: 'English_title', FR: 'French_title'} }
+    console.log(window.location.href); 
+    let URL = window.location.href 
+    let link = URL.slice(35)
+    let linkIndex = obj.lang[link]
+    console.log(linkIndex);
+    
+    
+    console.log();
+    
+}
+
+// URLtoobject()
